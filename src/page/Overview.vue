@@ -52,7 +52,7 @@ export default {
     }
   },
   mounted() {
-    fetch("/courses.json?time=" + new Date().getTime())
+    fetch("courses.json?time=" + new Date().getTime())
       .then(response => response.json())
       .then(data => {
         this.data = data;

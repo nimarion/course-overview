@@ -43,13 +43,7 @@ export default {
     return {
       searchString: "",
       labelPosition: "on-border",
-      data: [
-        {
-          name: "Arduino",
-          img: "https://via.placeholder.com/300",
-          path: "arduino"
-        }
-      ],
+      data: [],
       displayData: []
     };
   },
@@ -58,8 +52,13 @@ export default {
       location.href = window.location.href + item.path;
     }
   },
-  created() {
-    this.displayData = this.data.slice();
+  mounted() {
+    fetch("/courses.json?time=" + new Date().getTime())
+      .then(response => response.json())
+      .then(data => {
+        this.data = data;
+        this.displayData = this.data.slice();
+      });
   },
   watch: {
     searchString: function(newSearch) {

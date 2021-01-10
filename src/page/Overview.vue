@@ -7,7 +7,7 @@
     </div>
     <div class="container">
       <div class="section">
-        <div class="row columns is-multiline" v-if="data.length > 0">
+        <div class="row columns is-multiline" v-if="displayData.length > 0">
           <div
             v-for="item in displayData"
             :key="item.name"
@@ -16,11 +16,7 @@
           >
             <div class="card large">
               <div class="card-image is-16by9">
-                <b-image
-                  :src-fallback="require('@/assets/logo.png')"
-                  ratio="16by9"
-                  :src="item.img"
-                ></b-image>
+                <b-image ratio="16by9" :src="item.img"></b-image>
               </div>
               <div class="card-content">
                 <div class="media">
@@ -31,6 +27,9 @@
               </div>
             </div>
           </div>
+        </div>
+        <div v-else>
+          <img style="zoom: 0.5" :src="require('@/assets/not_found.svg')" />
         </div>
       </div>
     </div>

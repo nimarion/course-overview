@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "buefy": "^0.9.4",
-    "core-js": "^3.6.5",
+    "core-js": "^3.23.3",
     "vue": "^2.6.11",
     "vue-router": "^3.4.9"
   },
